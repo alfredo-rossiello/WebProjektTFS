@@ -3,23 +3,32 @@ BIN ALLEINE IN DER GRUPPE
 1. Überprüfung von Passwort und email
 
 2. Verbidnungsaufbau zur Datenbank
-2.1 Speicherung der Daten
-2.2 Löschen von Daten
-2.3 Verändern von Daten
+- Speicherung der Daten
+- Löschen von Daten
+- Verändern von Daten
 
 3. Rechte von Admin, User (
     - Middleware/Interceptors
     - Zentralisierte URL-basierte Sicherheit (Security Configuration Class)
     )
+- admin : kann alles
+- lehrer : sollen nur in eigenen Stunden eintragen können, 
+notizen mit eintragen die nur angezeigt werden bei darüber hovern des zeigers
+- user : nur tabellen sehen können
 
 4. Überprüfung der Email per emial zusendung (temporärer token)
 
 5. header rückführung auf Seite mit eingegeben Daten
-
-6. Möglichkeit von Eintragen von Schullaufgaben/Kurzarbeiten nur in den eigenen Stunden
+- header
+- cookies/sessions
 
 7. Anlegen von Klassen
 -> nur Schüler dieser Klassen können sich die eingetragenen Schulaufgaben/Kurzarbeiten anschauen
 (überprüfung anhand vorderteil von email kürzel, wie bei schulemail)
 
-8. vertretungs lehrer sollen Stunden zugewiesen bekommen können
+9. Tabellen sollen immer wieder neu geladen werden (innerhalb einer Seite)
+
+10. eintragen von Schulaufgaben
+- an Feiertagen kann nicht eingetragen werden
+- in Ferien kann nicht eingetragen werden
+- bei bereits eingetragenen Schulaufgaben kann nicht eingetragen werden
