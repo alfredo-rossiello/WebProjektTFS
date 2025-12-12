@@ -1,4 +1,4 @@
-bin alleine in der Gruppe
+BIN ALLEINE IN DER GRUPPE
 
 1. Überprüfung von Passwort und email
 
@@ -17,3 +17,9 @@ bin alleine in der Gruppe
 5. header rückführung auf Seite mit eingegeben Daten
 
 6. Möglichkeit von Eintragen von Schullaufgaben/Kurzarbeiten nur in den eigenen Stunden
+
+7. Anlegen von Klassen
+-> nur Schüler dieser Klassen können sich die eingetragenen Schulaufgaben/Kurzarbeiten anschauen
+(überprüfung anhand vorderteil von email kürzel, wie bei schulemail)
+
+8. vertretungs lehrer sollen Stunden zugewiesen bekommen können

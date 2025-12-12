@@ -23,7 +23,6 @@ $validPassword = false;
 $validBN = false;
 
 if (isset($email)) {
-
     // ueberprueft ob emailformat passt 
     if (validateEmail($mail)) {
 
@@ -31,8 +30,12 @@ if (isset($email)) {
         if (sortForEmailDomain($email)) {
             $validEmail = true;
         }
-
     }
+}   
+
+
+if (isset($password)) {
+    // ueberpruefung ob passwort den Anforderungen genügt
 
 }
 
@@ -41,6 +44,7 @@ if (isset($email)) {
 function validateEmail($email) {
     return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
+
 
 // funktion welche die domain der email überprueft
 function sortForEmailDomain($email) {
