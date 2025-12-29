@@ -41,11 +41,15 @@ if (isset($password)) {
 }
 
 
-// verbindung zur db in der dann die daten gespeichert werden
 if ($validEmail && $validPassword) {
-    
-} else {
+    // verbindung zur db in der dann die daten gespeichert werden
+
+} else if ($validEmail && !$validPassword) {
     // zurückleitung per header!
+    //header();
+} else if (!$validEmail && $validPassword) {
+    // zurückleitung per header!
+    //header();
 }
 
 
@@ -60,17 +64,19 @@ function validateEmailDomain($email) {
     $arr = explode("@", $email, 2);
     $domain = explode(".", $arr[1]);
 
-    $preg1 = "/bapfit/";
-    $preg2 = "bappassau.onmicrosoft";
 
     // überprüfung ob diese elmente in der email vorhanden sind
-    if (preg_match($preg1, $domain[0]) && $domain[1] == "lan") {
-        return true;
-    } else if (preg_match($preg2, $domain[0]) && $domain[1] == "com") {
-        return true;
-    } else {
-        return false;
+    if (count($domain) == 2) {
+        if ($domain[0] == "bapfit" && $domain[1] == "lan") {
+            return true;
+        }
+    } else if (count($domain) == 3) {
+        if ($domain[0] = "bappassau" && $domain[1] == "onmicrosoft" && $domain[2] == "com") {
+            return true;
+        } 
     }
+
+    return false;
 }
 
 
