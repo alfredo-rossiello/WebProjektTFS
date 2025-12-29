@@ -14,20 +14,18 @@
 
 // schaue das 
 
-$username = $_POST["username"];
 $email = $_POST["email"];
 $password = $_POST["password"];
 
 $validEmail = false;
 $validPassword = false;
-$validBN = false;
 
 if (isset($email)) {
     // ueberprueft ob emailformat passt 
     if (validateEmail($mail)) {
 
         // schaut ob die domain stimmt
-        if (sortForEmailDomain($email)) {
+        if (validateEmailDomain($email)) {
             $validEmail = true;
         }
     }
@@ -36,7 +34,18 @@ if (isset($email)) {
 
 if (isset($password)) {
     // ueberpruefung ob passwort den Anforderungen genügt
+    if (validatePassword($password)) {
+        $validPassword = true;        
+    }
 
+}
+
+
+// verbindung zur db in der dann die daten gespeichert werden
+if ($validEmail && $validPassword) {
+    
+} else {
+    // zurückleitung per header!
 }
 
 
@@ -47,21 +56,41 @@ function validateEmail($email) {
 
 
 // funktion welche die domain der email überprueft
-function sortForEmailDomain($email) {
-    $arr[] = explode("@", $email);
+function validateEmailDomain($email) {
+    $arr = explode("@", $email, 2);
+    $domain = explode(".", $arr[1]);
 
-    // überprüft ob email domain passt
-    $bap = preg_match_all("/^bap/i", $arr[1]);
-    $passau = preg_match_all("/passau/i", $arr[1]);
-    $microsoft = preg_match_all("/microsoft/i", $arr[1]);
-    $com = preg_match_all("/com$/i", $arr[1]);
+    $preg1 = "/bapfit/";
+    $preg2 = "bappassau.onmicrosoft";
 
     // überprüfung ob diese elmente in der email vorhanden sind
-    if (($bap == 1 || $passau == 1 || $microsoft == 1) && $com != 0) {
+    if (preg_match($preg1, $domain[0]) && $domain[1] == "lan") {
+        return true;
+    } else if (preg_match($preg2, $domain[0]) && $domain[1] == "com") {
         return true;
     } else {
         return false;
     }
+}
+
+
+function validatePassword($password) {
+    // mindestlaenge 8 zeichen
+    if (strlen($password) < 8) {
+        return false;
+    }
+
+    // mindestens ein grosser buchstabe
+    if (!preg_match("/[A-Z]/", $password)) {
+        return false;
+    }
+
+    // mindestens eine zahl
+    if (!preg_match("/[0-9]/", $password)) {
+        return false;
+    }
+
+    return true;
 }
 
 ?>
