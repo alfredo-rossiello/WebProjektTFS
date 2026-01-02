@@ -13,7 +13,7 @@
             <form id="registerForm">
                 <div class="form-group">
                     <label for="email">E-Mail</label>
-                    <input type="email" id="email" name="email">
+                    <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_GET["email"] ?? "") ?>">
                 </div>
                 
                 <div class="form-group">

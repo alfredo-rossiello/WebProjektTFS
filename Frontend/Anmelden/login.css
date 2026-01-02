@@ -58,17 +58,12 @@ input:foucus {
 }
 
 .remember-forgot {
-    display: flex;
-
-    /*reiht die Elemente nebeneinander an*/
-    justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
     font-size: 14px;
 }
 
 .remember-forgot label {
-    display: flex;
     align-items: center;
     margin-bottom: 0;
     cursor: pointer;

@@ -12,17 +12,18 @@
 
 <?php
 
-// schaue das 
+// sessions sind besser als get parameter 
 
 $email = $_POST["email"];
 $password = $_POST["password"];
 
 $validEmail = false;
 $validPassword = false;
+$emailVerified = false;
 
 if (isset($email)) {
     // ueberprueft ob emailformat passt 
-    if (validateEmail($mail)) {
+    if (validateEmail($email)) {
 
         // schaut ob die domain stimmt
         if (validateEmailDomain($email)) {
@@ -44,12 +45,12 @@ if (isset($password)) {
 if ($validEmail && $validPassword) {
     // verbindung zur db in der dann die daten gespeichert werden
 
+
+    // keine header verwenden sondern sessions
 } else if ($validEmail && !$validPassword) {
-    // zurückleitung per header!
-    //header();
-} else if (!$validEmail && $validPassword) {
-    // zurückleitung per header!
-    //header();
+    header("Location: http://localhost/AlfredoRossiello/web/Frontend/Anmelden/registerGUI.php?email=$email");
+} else {
+    header("Location: http://localhost/AlfredoRossiello/web/Frontend/Anmelden/registerGUI.php");
 }
 
 
@@ -71,7 +72,7 @@ function validateEmailDomain($email) {
             return true;
         }
     } else if (count($domain) == 3) {
-        if ($domain[0] = "bappassau" && $domain[1] == "onmicrosoft" && $domain[2] == "com") {
+        if ($domain[0] == "bappassau" && $domain[1] == "onmicrosoft" && $domain[2] == "com") {
             return true;
         } 
     }
@@ -99,4 +100,13 @@ function validatePassword($password) {
     return true;
 }
 
+// verbindung zur datenbank 
+/*function conn($sql) {
+    // verbindung zur db erstellen
+    $con = mysqli_connect("localhost", "root", "", "tfprojekt");
+    mysqli_set_charset($con, "utf-8");
+
+    // insert, delete, update gibt true zurück, select gibt result set zurück
+    return mysqli_query($con, $sql);
+}*/
 ?>
