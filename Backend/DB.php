@@ -8,16 +8,16 @@ function insert($conn, $username, $password) {
     mysqli_stmt_close($stmt);
 }
 
-// suchen nach username
-function select ($conn, $username) {
+// suchen nach username oder gehashtem passwort
+function select ($conn, $data) {
     $sql = "SELECT username FROM user WHERE username = ?";
     $stmt = mysqli_prepare($conn, $sql);
-    
-    mysqli_stmt_bind_param($stmt, "s", $username);
+
+    mysqli_stmt_bind_param($stmt, "s", $data);
     mysqli_stmt_execute($stmt);
     
     // werte an email binden
-    mysqli_stmt_bind_result($stmt, $email);
+    mysqli_stmt_bind_result($stmt, $input);
 
     // wert holen
     mysqli_stmt_fetch($stmt);
@@ -26,7 +26,7 @@ function select ($conn, $username) {
     mysqli_stmt_close($stmt); 
     
     // Wert zurueckgeben
-    return $email;
+    return $input;
 }
 
 // löschen anhand von username

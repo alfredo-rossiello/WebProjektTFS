@@ -11,6 +11,8 @@
 </html>
 
 <?php
+// kNd,2U6gYfWt6Y"
+
 require_once 'registerFunktions.php';
 require_once 'DB.php';
 
