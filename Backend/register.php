@@ -1,3 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MainPage</title>
+</head>
+<body>
+    <h1>Erfolgreich weiter geleitet</h1>
+</body>
+</html>
+
 <?php
 require_once 'registerFunktions.php';
 require_once 'DB.php';
@@ -35,26 +47,26 @@ if ($validEmail && $validPassword) {
     
     // verbindung zur db in der dann die daten gespeichert werden
     $conn = mysqli_connect("localhost", "root", "", "tfprojekt");
-    mysqli_set_charset($con, "utf8");
+    mysqli_set_charset($conn, "utf8");
 
-    // datenbank erstellen
-    $sql1 = "CREATE DATABASE IF NOT EXISTS tfprojekt";
+    if ($conn != null) {
+            
+        // tablle erstellen
+        $sql2 = "CREATE TABLE IF NOT EXISTS user (
+                username VARCHAR(255) NOT NULL UNIQUE PRIMARY KEY,
+                password VARCHAR(255) NOT NULL
+            )";
+        mysqli_query($conn, $sql2);
+
+        // daten in die db einfügen
+        $hash = password_hash($password, PASSWORD_BCRYPT);
         
-    // tablle erstellen
-    $sql2 = "CREATE TABLE IF NOT EXISTS user (
-            username VARCHAR(255) NOT NULL UNIQUE PRIMARY KEY,
-            password VARCHAR(255) NOT NULL
-        )";
+        if (select($conn, $username) == null) {
+            insert($conn, $username, $hash);
+        }
 
-    // daten in die db einfügen
-    $hash = password_hash($password, PASSWORD_BCRYPT);
-    
-    if (select($conn, $username) != null) {
-        insert($conn, $username, $hash);
+        mysqli_close($conn);
     }
-
-    mysqli_close($conn);
-    
 
 } else if ($validEmail && !$validPassword) {
     // sessions verwenden

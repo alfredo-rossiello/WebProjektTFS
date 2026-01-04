@@ -11,9 +11,9 @@ function insert($conn, $username, $password) {
 // suchen nach username
 function select ($conn, $username) {
     $sql = "SELECT username FROM user WHERE username = ?";
-
     $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ss", $username);
+    
+    mysqli_stmt_bind_param($stmt, "s", $username);
     mysqli_stmt_execute($stmt);
     
     // werte an email binden

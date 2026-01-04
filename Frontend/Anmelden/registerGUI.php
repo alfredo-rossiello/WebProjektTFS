@@ -7,7 +7,7 @@
     <title>Registrieren</title>
 </head>
 <body>
-    <form action="../../Backend/register.php" method="post">
+    <form action="../Backend/register.php" method="post">
         <div class="container">
             <h1>Registrierung</h1>
             <form id="registerForm">
@@ -25,7 +25,7 @@
             </form>
             
             <p class="link-text">
-                Bereits registriert? <a href="login.html">Hier anmelden</a>
+                Bereits registriert? <a href="loginGUI.php">Hier anmelden</a>
             </p>
         </div>
     </form>

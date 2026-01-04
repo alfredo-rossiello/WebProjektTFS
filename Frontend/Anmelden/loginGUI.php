@@ -32,7 +32,7 @@
             </form>
             
             <p class="link-text">
-                Noch kein Konto? <a href="register.html">Jetzt registrieren</a>
+                Noch kein Konto? <a href="registerGUI.php">Jetzt registrieren</a>
             </p>
         </div>
     </form>
