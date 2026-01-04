@@ -1,36 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Startseite</title>
-</head>
-<body>
-
-</body>
-</html>
-
 <?php
+require_once 'registerFunktions.php';
+require_once 'DB.php';
 
-// sessions sind besser als get parameter 
-
-$email = $_POST["email"];
+$username = $_POST["email"];
 $password = $_POST["password"];
 
 $validEmail = false;
 $validPassword = false;
 $emailVerified = false;
 
-if (isset($email)) {
+
+if (isset($username)) {
     // ueberprueft ob emailformat passt 
-    if (validateEmail($email)) {
+    if (validateEmail($username)) {
 
         // schaut ob die domain stimmt
-        if (validateEmailDomain($email)) {
+        if (validateEmailDomain($username)) {
             $validEmail = true;
         }
     }
-}   
+}
 
 
 if (isset($password)) {
@@ -43,70 +32,34 @@ if (isset($password)) {
 
 
 if ($validEmail && $validPassword) {
+    
     // verbindung zur db in der dann die daten gespeichert werden
+    $conn = mysqli_connect("localhost", "root", "", "tfprojekt");
+    mysqli_set_charset($con, "utf8");
 
+    // datenbank erstellen
+    $sql1 = "CREATE DATABASE IF NOT EXISTS tfprojekt";
+        
+    // tablle erstellen
+    $sql2 = "CREATE TABLE IF NOT EXISTS user (
+            username VARCHAR(255) NOT NULL UNIQUE PRIMARY KEY,
+            password VARCHAR(255) NOT NULL
+        )";
 
-    // keine header verwenden sondern sessions
+    // daten in die db einfügen
+    $hash = password_hash($password, PASSWORD_BCRYPT);
+    
+    if (select($conn, $username) != null) {
+        insert($conn, $username, $hash);
+    }
+
+    mysqli_close($conn);
+    
+
 } else if ($validEmail && !$validPassword) {
+    // sessions verwenden
     header("Location: http://localhost/AlfredoRossiello/web/Frontend/Anmelden/registerGUI.php?email=$email");
 } else {
     header("Location: http://localhost/AlfredoRossiello/web/Frontend/Anmelden/registerGUI.php");
 }
-
-
-// funktion die die email auf gueltigkeit prueft
-function validateEmail($email) {
-    return filter_var($email, FILTER_VALIDATE_EMAIL);
-}
-
-
-// funktion welche die domain der email überprueft
-function validateEmailDomain($email) {
-    $arr = explode("@", $email, 2);
-    $domain = explode(".", $arr[1]);
-
-
-    // überprüfung ob diese elmente in der email vorhanden sind
-    if (count($domain) == 2) {
-        if ($domain[0] == "bapfit" && $domain[1] == "lan") {
-            return true;
-        }
-    } else if (count($domain) == 3) {
-        if ($domain[0] == "bappassau" && $domain[1] == "onmicrosoft" && $domain[2] == "com") {
-            return true;
-        } 
-    }
-
-    return false;
-}
-
-
-function validatePassword($password) {
-    // mindestlaenge 8 zeichen
-    if (strlen($password) < 8) {
-        return false;
-    }
-
-    // mindestens ein grosser buchstabe
-    if (!preg_match("/[A-Z]/", $password)) {
-        return false;
-    }
-
-    // mindestens eine zahl
-    if (!preg_match("/[0-9]/", $password)) {
-        return false;
-    }
-
-    return true;
-}
-
-// verbindung zur datenbank 
-/*function conn($sql) {
-    // verbindung zur db erstellen
-    $con = mysqli_connect("localhost", "root", "", "tfprojekt");
-    mysqli_set_charset($con, "utf-8");
-
-    // insert, delete, update gibt true zurück, select gibt result set zurück
-    return mysqli_query($con, $sql);
-}*/
 ?>
