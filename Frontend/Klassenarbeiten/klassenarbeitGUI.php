@@ -35,7 +35,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="time-cell">08:00 - 09:30</td>
+                    <td class="time-cell">1</td>
                     <td class="day-cell"></td>
                     <td class="day-cell"></td>
                     <td class="day-cell"></td>
@@ -43,7 +43,7 @@
                     <td class="day-cell"></td>
                 </tr>
                 <tr>
-                    <td class="time-cell">09:45 - 11:15</td>
+                    <td class="time-cell">2</td>
                     <td class="day-cell"></td>
                     <td class="day-cell"></td>
                     <td class="day-cell"></td>
@@ -51,7 +51,7 @@
                     <td class="day-cell"></td>
                 </tr>
                 <tr>
-                    <td class="time-cell">11:30 - 13:00</td>
+                    <td class="time-cell">3</td>
                     <td class="day-cell"></td>
                     <td class="day-cell"></td>
                     <td class="day-cell"></td>
@@ -59,7 +59,7 @@
                     <td class="day-cell"></td>
                 </tr>
                 <tr>
-                    <td class="time-cell">14:00 - 15:30</td>
+                    <td class="time-cell">4</td>
                     <td class="day-cell"></td>
                     <td class="day-cell"></td>
                     <td class="day-cell"></td>
@@ -67,7 +67,47 @@
                     <td class="day-cell"></td>
                 </tr>
                 <tr>
-                    <td class="time-cell">15:45 - 17:15</td>
+                    <td class="time-cell">5</td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                </tr>
+                <tr>
+                    <td class="time-cell">6</td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                </tr>
+                <tr>
+                    <td class="time-cell">7</td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                </tr>
+                <tr>
+                    <td class="time-cell">8</td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                </tr>
+                <tr>
+                    <td class="time-cell">9</td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                    <td class="day-cell"></td>
+                </tr>
+                <tr>
+                    <td class="time-cell">10</td>
                     <td class="day-cell"></td>
                     <td class="day-cell"></td>
                     <td class="day-cell"></td>
