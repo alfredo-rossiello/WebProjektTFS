@@ -11,7 +11,8 @@
 </html>
 
 <?php
-// kNd,2U6gYfWt6Y"
+// sessions müssen noch eingefügt werden
+// kNd,2U6gYfWt6Y" eine eingeloggte person
 
 require_once 'registerFunktions.php';
 require_once 'DB.php';
