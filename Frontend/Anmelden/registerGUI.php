@@ -7,12 +7,13 @@
     <title>Registrieren</title>
 </head>
 <body>
-    <form action="../Backend/register.php" method="post">
+    <form action="../../Backend/Anmelden/register.php" method="post">
         <div class="container">
             <h1>Registrierung</h1>
             <form id="registerForm">
                 <div class="form-group">
                     <label for="email">E-Mail</label>
+                    <!-- das GET, lieber mit einer Session, gefällt mir noch nicht so ganz -->
                     <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($_GET["email"] ?? "") ?>">
                 </div>
                 

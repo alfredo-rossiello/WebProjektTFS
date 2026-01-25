@@ -59,13 +59,20 @@ if ($validEmail && $validPassword) {
                 username VARCHAR(255) NOT NULL UNIQUE PRIMARY KEY,
                 password VARCHAR(255) NOT NULL
             )";
+             
         mysqli_query($conn, $sql2);
 
         // daten in die db einfügen
+        // PASSWORD_BCRYPT saltet automatisch
         $hash = password_hash($password, PASSWORD_BCRYPT);
-        
-        if (select($conn, $username) == null) {
+        $select = select($conn, $username);
+
+        if ($select == null) {
             insert($conn, $username, $hash);
+            echo "eingetragen";
+        } else  {
+            // werte entfernen
+            unset($select);
         }
 
         mysqli_close($conn);

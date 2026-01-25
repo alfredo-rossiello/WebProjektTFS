@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <body>
-    <form action="../Backend/login.php" method="post">
+    <form action="../../Backend/Anmelden/login.php" method="post">
         <div class="container">
             <h1>Anmelden</h1>
             <form action="../../Backend/login.php" method="post">
