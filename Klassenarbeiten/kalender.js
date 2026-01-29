@@ -1,1 +1,0 @@
-// hier sind die ganzen funktionen wie das anzeigen und eintragen von klassenarbeiten
