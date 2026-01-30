@@ -1,3 +1,8 @@
+<?php
+// session starten für Rechte verwaltung
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,9 +36,9 @@
                 <button type="submit">Anmelden</button>
             </form>
             
-            <p class="link-text">
+            <!--<p class="link-text">
                 Noch kein Konto? <a href="registerGUI.php">Jetzt registrieren</a>
-            </p>
+            </p>-->
         </div>
     </form>
 </body>

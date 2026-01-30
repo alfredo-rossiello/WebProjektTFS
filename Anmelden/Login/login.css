@@ -97,7 +97,7 @@ button {
     transition: transform 0.2s;
 }
 
-.link-text {
+/*.link-text {
     text-align: center;
     margin-top: 20px;
     color: #666;
@@ -112,4 +112,4 @@ button {
 
 .link-text a:hover {
     text-decoration: underline;
-}
+}*/
