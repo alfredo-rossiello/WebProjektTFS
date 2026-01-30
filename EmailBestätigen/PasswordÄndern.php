@@ -10,11 +10,8 @@
 </body>
 </html>
 
+
 <?php
-
-// die Email wird vergeben von dem Admin
-// bestätigungsmail zum passwort ändern wird gesendet
-// läuft nach 24h ab
-// Passwort muss geändert werden damit Konto aktiviert wird
-
+// vergebenes Passwort wird gespeichert und bei ändern überschrieben
+// vergebenes Passwort hat 5 Zeichen
 ?>

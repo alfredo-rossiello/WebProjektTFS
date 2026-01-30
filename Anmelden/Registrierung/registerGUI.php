@@ -1,3 +1,7 @@
+<?php 
+// das wird nicht gebraucht weil user angelegt werden muss
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

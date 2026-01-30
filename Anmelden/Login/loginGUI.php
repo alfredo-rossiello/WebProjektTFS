@@ -15,7 +15,7 @@
     <form action="login.php" method="post">
         <div class="container">
             <h1>Anmelden</h1>
-            <form action="../../Backend/login.php" method="post">
+            <form action="login.php" method="post">
                 <div class="form-group">
                     <label for="email">E-Mail oder Benutzername</label>
                     <input type="text" id="email" name="email">
@@ -31,6 +31,9 @@
                         <input type="checkbox" name="remember"> Angemeldet bleiben 
                     </label>
                     <a href="#">Passwort vergessen?</a>
+                    <!-- möglichkeit zum Passwort reset durch neue Passwort ändern 
+                     email -->
+
                 </div>
                 
                 <button type="submit">Anmelden</button>
